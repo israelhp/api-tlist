@@ -32,9 +32,22 @@ const saveRefreshToken = async (user, refreshToken) => {
   await user.save()
 }
 
+const revokeRefreshToken = async (refreshToken) => {
+  const user = await User.findOne({ refreshToken })
+
+  if (!user) {
+    return null
+  }
+
+  user.refreshToken = null
+  await user.save()
+  return user
+}
+
 const UserService = {
   saveRefreshToken,
   saveOrUpdateUser,
+  revokeRefreshToken,
 }
 
 module.exports = UserService
