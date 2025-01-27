@@ -3,8 +3,8 @@ const helmet = require('helmet')
 const cors = require('cors')
 const morgan = require('morgan')
 const routes = require('../routes/routes')
-const swagger = require('./swagger') // Importar la configuración de Swagger
-require('express-async-errors') // Habilitar manejo de errores asincrónicos
+const swagger = require('./swagger')
+const errorHandlerMiddleware = require('../middlewares/errorHandlerMiddleware')
 
 const configureMiddlewares = (app) => {
   app.use(express.urlencoded({ extended: false }))
@@ -23,11 +23,7 @@ const configureSwagger = (app) => {
 }
 
 const configureErrorHandling = (app) => {
-  // eslint-disable-next-line no-unused-vars
-  app.use((err, req, res, next) => {
-    console.error('Error:', err.message)
-    res.status(500).json({ message: 'Error interno del servidor' })
-  })
+  app.use(errorHandlerMiddleware)
 }
 
 const createApp = () => {
