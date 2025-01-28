@@ -1,10 +1,8 @@
+const { createApp } = require('./config/app')
 const config = require('./config/config')
-const ExpressConfig = require('./config/app')
-const Database = require('./config/database')
+const dbService = require('./config/database')
 
-const dbService = Database.getInstance()
-const expressConfig = new ExpressConfig()
-const app = expressConfig.getApp()
+const app = createApp()
 
 const startServer = async () => {
   try {
