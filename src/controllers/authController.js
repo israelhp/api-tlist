@@ -3,6 +3,7 @@ const TokenService = require('../services/tokenServices')
 const UserService = require('../services/userService')
 const { successResponse } = require('../utils/responseHelper')
 const createCustomError = require('../utils/customError')
+const config = require('../config/config')
 
 const handleOAuthCallback = async (req, res, next) => {
   try {
@@ -47,7 +48,7 @@ const refreshAccessToken = async (req, res, next) => {
 
     const decoded = TokenService.verifyToken(
       refreshToken,
-      process.env.JWT_REFRESH_SECRET
+      config.JWT_REFRESH_SECRET
     )
 
     const newAccessToken = TokenService.generateTokens({
