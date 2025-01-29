@@ -5,6 +5,12 @@ const validateRequest = require('../middlewares/validateMiddleware')
 const { refreshTokenSchema } = require('../utils/validations/authValidators')
 
 const router = express.Router()
+/**
+ * @swagger
+ * tags:
+ *   name: Authentication
+ *   description: Endpoints para la autenticacion y manejo de access token
+ */
 
 /**
  * @swagger
