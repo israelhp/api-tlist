@@ -2,14 +2,14 @@ const express = require('express')
 const passport = require('../config/passportConfig')
 const AuthController = require('../controllers/authController')
 const validateRequest = require('../middlewares/validateMiddleware')
-const { refreshTokenSchema } = require('../utils/validations/authValidators')
+const { refreshTokenSchema } = require('../utils/validations/authValidation')
 
 const router = express.Router()
 /**
  * @swagger
  * tags:
  *   name: Authentication
- *   description: Endpoints para la autenticacion y manejo de access token
+ *   description: Endpoints for authentication and access token management
  */
 
 /**

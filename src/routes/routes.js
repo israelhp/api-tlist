@@ -5,7 +5,7 @@ const noteRoutes = require('./noteRoutes')
 const router = Router()
 
 router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Bienvenido a api-tlist' })
+  res.status(200).json({ message: 'Welcome to api-tlist' })
 })
 router.use('/auth', authRoutes)
 router.use('/notes', noteRoutes)
