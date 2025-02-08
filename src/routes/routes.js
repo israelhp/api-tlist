@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const authRoutes = require('./authRoutes')
 const noteRoutes = require('./noteRoutes')
+const reminderRoutes = require('./reminderRoutes')
 
 const router = Router()
 
@@ -9,5 +10,6 @@ router.get('/', (req, res) => {
 })
 router.use('/auth', authRoutes)
 router.use('/notes', noteRoutes)
+router.use('/reminders', reminderRoutes)
 
 module.exports = router
